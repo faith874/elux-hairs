@@ -1,6 +1,211 @@
 <!DOCTYPE html>
 <html>
-<head><title>Wig brand</title></head>
+<head>
+      <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Wig brand</title>
+<style>
+  /* --- Luxury Base Styles --- */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: #fcfbfa;
+    color: #222222;
+    line-height: 1.6;
+    padding: 20px 15px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* --- Header & Logo Styling --- */
+  header {
+    text-align: center;
+    padding: 20px 0 10px;
+  }
+  header img {
+    max-width: 180px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  /* --- Navigation Bar --- */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eae6e1;
+  }
+  nav a {
+    text-decoration: none;
+    color: #555555;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #d4af37;
+  }
+
+  /* --- Typography --- */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1a1a1a;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-size: 1.4rem;
+    margin: 25px 0 15px;
+  }
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  p {
+    text-align: center;
+    color: #666666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+
+  /* --- Product Cards --- */
+  .product-card, section {
+    background: #ffffff;
+    border: 1px solid #f0ece6;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  }
+  section img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+  ul li {
+    padding: 6px 0;
+    border-bottom: 1px dashed #f0f0f0;
+    font-size: 0.9rem;
+    color: #444444;
+  }
+  ul li:last-child {
+    border-bottom: none;
+  }
+
+  /* --- Luxury Form Styling --- */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #333333;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  input[type="text"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #fafafa;
+    color: #333333;
+    transition: all 0.3s ease;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+  }
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  /* --- Submit Button --- */
+  button[type="submit"] {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease, transform 0.1s ease;
+  }
+  button[type="submit"]:hover {
+    background: #d4af37;
+    color: #1a1a1a;
+  }
+  button[type="submit"]:active {
+    transform: scale(0.99);
+  }
+
+  /* --- Contact Links & Buttons --- */
+  a[href^="tel:"], a[href*="wa.me"] {
+    display: block;
+    text-align: center;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 8px 0;
+    transition: all 0.3s ease;
+  }
+  a[href*="wa.me"] {
+    background-color: #25d366;
+    color: #ffffff;
+    border: none;
+  }
+  a[href^="tel:"]:hover {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  a[href*="wa.me"]:hover {
+    background-color: #1eb854;
+  }
+</style>
+
+</head>
 <body><h1>Elux hairs</h1>
       <section> <img src="logo.png" alt="Elux Hairs Logo" style="max-width: 200px; display: block; margin: 0 auto;">
 </section>
