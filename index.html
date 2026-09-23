@@ -203,23 +203,41 @@
   a[href*="wa.me"]:hover {
     background-color: #1eb854;
   }
+      /* Smooth scrolling for menu links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keeps headers from getting hidden behind the nav bar */
+section {
+  scroll-margin-top: 80px;
+}
+
 </style>
 
 </head>
 <body><h1>Elux hairs</h1>
       <section> <img src="logo.png" alt="Elux Hairs Logo" style="max-width: 200px; display: block; margin: 0 auto;">
 </section>
+
 <nav>
-      <a href="#">HOME</a>
-      <a href="#">WIG</a>
-      <a href="#">ABOUT</a>
-      <a href="#">CONTACT</a>
+  <a href="#home">HOME</a>
+  <a href="#wigs">WIG</a>
+  <a href="#about">ABOUT</a>
+  <a href="#contact">CONTACT</a>
+      <a href="#order">ORDER</a>
 </nav>
-<section><h2>WELCOME TO ELUX HAIRS</h2>
-<p>Luxurious and beautiful wigs for every occasion to be that "girl"</p>
-</section>
-<section>
+
+<header id="home">
+  <img src="logo.png" alt="Elux Hairs Logo">
+  <h1>WELCOME TO ELUX HAIRS</h1>
+  <p>Luxurious and beautiful wigs for every occasion to be that "girl"</p>
+</header>
+
+<section id="wigs">
 <h2>OUR WIGS</h2>
+      <div class="wig-grid">
+            <div class="wig-card">
 <h3>Luxury Bouncy Wig</h3>
 
 <img src="bouncys.png" alt="Luxury Bouncy Wig">
@@ -243,6 +261,8 @@
     the glueless, ready-to-wear design makes styling easy and convenient.
     Perfect for a glamorous and effortless look.
 </p>
+            </div>
+            <div class="wig-card">
 <h3>Luxury Deep Wave Wig</h3>
 
 <img src="deepwaves.png" alt="Luxury Deep Wave Wig">
@@ -266,6 +286,8 @@
     the glueless, ready-to-wear design makes styling simple and convenient.
     Perfect for anyone who loves volume, definition and a luxurious finish.
 </p>
+            </div>
+            <div class="wig-card">
 <h3>Luxury Bone Straight Wig</h3>
 
 <img src="straight.png" alt="Luxury Bone Straight Wig">
@@ -288,6 +310,8 @@
     HD lace creates a beautiful hairline. Perfect for anyone who loves a long,
     elegant and sophisticated look.
 </p>
+            </div>
+      </div>
 </section>
 <section>
     <h2>What we offer</h2>
@@ -415,10 +439,20 @@
             <td>GH¢1,200</td>
         </tr>
     </table>
+</section><!-- ABOUT SECTION-->
+<section id="about">
+  <h2>ABOUT ELUX HAIRS</h2>
+  <p>Welcome to <strong>Elux Hairs</strong> — your premier destination for high-end, effortless beauty. We specialize in top-tier 100% virgin human hair, ultra-invisible HD lace finishes, and luxury ready-to-wear units crafted specifically for the modern IT girl.</p>
+
+  <p>Our mission is simple: to deliver unmatched quality, realistic melt hairlines, and long-lasting hair that elevates your confidence every single day. Whether you're looking for sleek bone straight lengths, full bouncy waves, or low-maintenance glueless installs, every unit is curated with precision and care.</p>
+
+  <p>At Elux Hairs, luxury isn't just a look — it's an experience. Thank you for letting us be part of your hair crown! ✨👑</p>
 </section>
+<section id="contact">
       
    <a href="sms:+233206560975">Text Elux hairs</a>
   <a href="tel:+233206560975">Call Elux hairs</a>
+</section>
   <section id="order">
       <h2>
           Place ur order here
