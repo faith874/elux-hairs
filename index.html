@@ -58,9 +58,43 @@
       <h2>
           Place ur order here
       </h2>
-     <form>
-         
-     </form>
+    
+         <form action="https://api.web3forms.com/submit" method="POST">
+  <!-- Web3Forms Access Key -->
+  <input type="hidden" name="access_key" value="3a5756c6-5b59-4ddb-86d6-9a891053f58a">
+
+  <label>YOUR NAME</label><br>
+  <input type="text" name="Customer Name" required><br><br>
+
+  <label>PHONE NUMBER</label><br>
+  <input type="tel" name="Phone Number" required><br><br>
+
+  <label>CHOOSE UR WIG</label><br>
+  <select name="Selected Wig">
+    <option value="Bonestraight wig">Bonestraight wig</option>
+    <option value="Deepwave wig">Deepwave wig</option>
+    <option value="Bouncy wig">Bouncy wig</option>
+  </select><br><br>
+
+  <label>QUANTITY</label><br>
+  <select name="Quantity">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select><br><br>
+
+  <label>DELIVERY LOCATION</label><br>
+  <input type="text" name="Delivery Location" required><br><br>
+
+  <label>Special request</label><br>
+  <textarea name="Special Request"></textarea><br><br>
+
+  <button type="submit">PLACE ORDER</button>
+</form>
+
+     
       </section>
 </body>
 </html
