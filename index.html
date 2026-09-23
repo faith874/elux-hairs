@@ -354,6 +354,95 @@ input, textarea, select {
   padding: 10px;
   border-radius: 6px;
 }
+/* Container Cards (Price List, Form, Contact Sections) */
+#price-list, #order, #contact, section, div[class*="container"] {
+  background-color: #121212 !important; /* Dark obsidian container */
+  border: 1px solid #332a15 !important;  /* Subtle gold outline */
+  border-radius: 16px;
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+/* Form Field Labels */
+label, .form-label {
+  color: #d4af37 !important; /* Rich Metallic Gold */
+  font-weight: 700 !important;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Price List Tables & Text */
+table, tr, td, th {
+  color: #ffffff !important; /* Crisp White numbers & lengths */
+  font-size: 1rem;
+}
+
+th {
+  color: #d4af37 !important; /* Gold table headers */
+  border-bottom: 1px solid #d4af37;
+  padding-bottom: 8px;
+}
+.momo-box {
+  background: linear-gradient(145deg, #181818, #0f0f0f);
+  border: 1px solid #d4af37;
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  margin: 25px auto;
+  max-width: 600px;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+.momo-title {
+  color: #d4af37 !important;
+  font-size: 1.3rem;
+  letter-spacing: 1.5px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.momo-subtext {
+  color: #cccccc !important;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.momo-details {
+  background-color: #121212;
+  border: 1px dashed #332a15;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.momo-number {
+  color: #f4e8c1 !important;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 5px 0;
+}
+
+.momo-number span {
+  color: #d4af37 !important;
+}
+
+.momo-account, .momo-ref {
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+.momo-instruction {
+  color: #f4e8c1 !important;
+  font-style: italic;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
 
 
 </style>
@@ -397,8 +486,10 @@ input, textarea, select {
     <li>Style: Bouncy Body Wave</li>
     <li>Density: 200% - 250%</li>
     <li>Pre-plucked hairline</li>
+      <li>Length:20 inches</li>
     <li>Glueless</li>
     <li>Ready to wear</li>
+      <li>Price:GH¢900.00</li>
 </ul>
 
 <p>
@@ -422,8 +513,10 @@ input, textarea, select {
     <li>Style: Deep Wave</li>
     <li>Density: 200% - 250%</li>
     <li>Pre-plucked hairline</li>
+      <li>Length:20 inches</li>
     <li>Glueless</li>
     <li>Ready to wear</li>
+      <li>Price:GH¢900.00</li>
 </ul>
 
 <p>
@@ -447,8 +540,10 @@ input, textarea, select {
     <li>Style: Bone Straight</li>
     <li>Density: 200% - 250%</li>
     <li>Pre-plucked hairline</li>
+     <li>Length:20 inches</li>
     <li>Glueless</li>
     <li>Ready to wear</li>
+      <li>Price</li>
 </ul>
 
 <p>
@@ -604,7 +699,27 @@ input, textarea, select {
       <h2>
           Place ur order here
       </h2>
-    
+    <div class="momo-box">
+  <h3 class="momo-title">DIRECT MOBILE MONEY PAYMENT</h3>
+  <p class="momo-subtext">Send payment directly to our official line to complete your purchase:</p>
+  
+  <div class="momo-details">
+    <p class="momo-number">
+      <span>MTN MoMo / Telecel:</span> 0206560975
+    </p>
+    <p class="momo-account">
+      Account Name: <strong>ELUX HAIRS</strong>
+    </p>
+    <p class="momo-ref">
+      Reference: <strong>Your Name + Wig Type</strong>
+    </p>
+  </div>
+
+  <p class="momo-instruction">
+    ✨ After transferring, enter your MoMo Transaction Reference ID into the order form below so we can process your wig immediately!
+  </p>
+</div>
+
          <form action="https://api.web3forms.com/submit" method="POST">
   <!-- Web3Forms Access Key -->
   <input type="hidden" name="access_key" value="3a5756c6-5b59-4ddb-86d6-9a891053f58a">
@@ -614,6 +729,8 @@ input, textarea, select {
 
   <label>PHONE NUMBER</label><br>
   <input type="tel" name="Phone Number" required><br><br>
+<label>MOMO TRANSACTION ID</label><br>
+<input type="text" name="Transaction_ID" placeholder="e.g. 2574839201" required><br><br>
 
   <label>CHOOSE UR WIG</label><br>
   <select name="Selected Wig">
