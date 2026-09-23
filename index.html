@@ -551,6 +551,53 @@ th {
   text-align: center;
   margin: 15px 0;
 }
+/* Modal Overlay (Dims the background) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Show modal class */
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Box */
+.modal-content {
+  background: #181818;
+  border: 1px solid #d4af37;
+  border-radius: 16px;
+  padding: 25px;
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
 
 </style>
 
@@ -581,85 +628,60 @@ th {
 <h2>OUR WIGS</h2>
       <div class="wig-grid">
             <div class="wig-card">
-<h3>Luxury Bouncy Wig</h3>
+    <!-- 1. Bouncy Wig Card -->
+    <div class="wig-card">
+      <h3>BOUNCY WIG</h3>
+      <img src="bouncys.png" alt="Luxury Bouncy Wig">
+      <h4>Product Details</h4>
+      <ul>
+        <li>Hair Type: 100% Human Hair</li>
+        <li>Lace: 13x6 HD Lace</li>
+        <li>Style: Bouncy Body Wave</li>
+        <li>Density: 200% - 250%</li>
+        <li>Pre-plucked hairline</li>
+        <li>Gueless</li>
+        <li>Ready to wear</li>
+        <li>Starts from GH₵ 400</li>
+      </ul>
+      <button onclick="openPurchaseModal('Bouncy Wig', 'bouncy')" class="buy-now-btn">Select & Buy Now 👑</button>
+    </div>
 
-<img src="bouncys.png" alt="Luxury Bouncy Wig">
+    <!-- 2. Deep Wave Wig Card -->
+    <div class="wig-card">
+      <h3>DEEP WAVE WIG</h3>
+      <img src="deepwaves.png" alt="Luxury Deep Wave Wig">
+      <h4>Product Details</h4>
+      <ul>
+        <li>Hair Type: 100% Human Hair</li>
+        <li>Lace: 5x5 HD Lace</li>
+        <li>Style: Deep Wave</li>
+        <li>Density: 200% - 250%</li>
+        <li>Pre-plucked hairline</li>
+        <li>Glueless</li>
+        <li>Ready to wear</li>
+        <li>Starts from GH₵ 400</li>
+      </ul>
+      <button onclick="openPurchaseModal('Deep Wave Wig', 'deep')" class="buy-now-btn">Select & Buy Now 👑</button>
+    </div>
 
-<h4>Product Details</h4>
+    <!-- 3. Bone Straight Wig Card -->
+    <div class="wig-card">
+      <h3>BONE STRAIGHT WIG</h3>
+      <img src="straight.png" alt="Luxury Bone Straight Wig">
+      <h4>Product Details</h4>
+      <ul>
+        <li>Hair Type: 100% Human Hair</li>
+        <li>Lace: 13x4 HD Lace</li>
+        <li>Style: Bone Straight</li>
+        <li>Density: 200% - 250%</li>
+        <li>Pre-plucked hairline</li>
+        <li>Glueless</li>
+        <li>Ready to wear</li>
+        <li>Starts from GH₵ 300</li>
+      </ul>
+      <button onclick="openPurchaseModal('Bone Straight Wig', 'bone')" class="buy-now-btn">Select & Buy Now 👑</button>
+    </div>
 
-<ul>
-    <li>Hair Type: 100% Human Hair</li>
-    <li>Lace: 13x6 HD Lace</li>
-    <li>Style: Bouncy Body Wave</li>
-    <li>Density: 200% - 250%</li>
-    <li>Pre-plucked hairline</li>
-      <li>Stretched Length:20 inches</li>
-    <li>Glueless</li>
-    <li>Ready to wear</li>
-      <li>Price:GH¢900.00</li>
-</ul>
-
-<p>
-    Elevate your look with our luxurious Bouncy Wig, featuring soft,
-    voluminous waves that create beautiful movement and bounce.
-    The natural-looking HD lace gives a seamless appearance, while
-    the glueless, ready-to-wear design makes styling easy and convenient.
-    Perfect for a glamorous and effortless look.
-</p>
-            </div>
-            <div class="wig-card">
-<h3>Luxury Deep Wave Wig</h3>
-
-<img src="deepwaves.png" alt="Luxury Deep Wave Wig">
-
-<h4>Product Details</h4>
-
-<ul>
-    <li>Hair Type: 100% Human Hair</li>
-    <li>Lace: 5x5 HD Lace</li>
-    <li>Style: Deep Wave</li>
-    <li>Density: 200% - 250%</li>
-    <li>Pre-plucked hairline</li>
-      <li>Stretched Length:20 inches</li>
-    <li>Glueless</li>
-    <li>Ready to wear</li>
-      <li>Price:GH¢900.00</li>
-</ul>
-
-<p>
-    Make a statement with our luxurious Deep Wave Wig, featuring
-    beautifully defined waves that create a full and glamorous look.
-    The natural-looking HD lace gives a seamless appearance, while
-    the glueless, ready-to-wear design makes styling simple and convenient.
-    Perfect for anyone who loves volume, definition and a luxurious finish.
-</p>
-            </div>
-            <div class="wig-card">
-<h3>Luxury Bone Straight Wig</h3>
-
-<img src="straight.png" alt="Luxury Bone Straight Wig">
-
-<h4>Product Details</h4>
-
-<ul>
-    <li>Hair Type: 100% Human Hair</li>
-    <li>Lace: 13x4 HD Lace</li>
-    <li>Style: Bone Straight</li>
-    <li>Density: 200% - 250%</li>
-    <li>Pre-plucked hairline</li>
-     <li>Stretched Length:20 inches</li>
-    <li>Glueless</li>
-    <li>Ready to wear</li>
-      <li>Price:GH¢800.00</li>
-</ul>
-
-<p>
-    Achieve an effortlessly luxurious look with our sleek Bone Straight Wig.
-    Its smooth, silky texture gives you a polished finish while the natural-looking
-    HD lace creates a beautiful hairline. Perfect for anyone who loves a long,
-    elegant and sophisticated look.
-</p>
-            </div>
       </div>
 </section>
 <section>
@@ -796,7 +818,31 @@ th {
   <p>Our mission is simple: to deliver unmatched quality, realistic melt hairlines, and long-lasting hair that elevates your confidence every single day. Whether you're looking for sleek bone straight lengths, full bouncy waves, or low-maintenance glueless installs, every unit is curated with precision and care.</p>
 
   <p>At Elux Hairs, luxury isn't just a look — it's an experience. Thank you for letting us be part of your hair crown! ✨👑</p>
-</section>
+</section><!-- PURCHASE POPUP MODAL -->
+<div id="purchase-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="close-modal-btn" onclick="closePurchaseModal()">&times;</button>
+    <h3 id="modal-wig-title">Select Your Length</h3>
+    
+    <!-- Length Selector Dropdown Inside the Popup -->
+    <div class="selection-group">
+      <label for="modal-length-select">Choose Length:</label>
+      <select id="modal-length-select" onchange="updateModalPrice()">
+        <!-- Options will be loaded dynamically based on the wig clicked -->
+      </select>
+    </div>
+
+    <!-- Dynamic Price Inside Popup -->
+    <p class="wig-price">Price: GH₵ <span id="modal-price-display">0</span></p>
+
+    <!-- Action Buttons -->
+    <div class="card-buttons">
+      <button onclick="confirmAddToCartFromModal()" class="add-to-cart-btn">Add to Bag 🛍️</button>
+      <button onclick="confirmBuyNowFromModal()" class="buy-now-btn">Buy Now 👑</button>
+    </div>
+  </div>
+</div>
+
 <section id="contact">
       
    <a href="sms:+233206560975">Text Elux hairs</a>
@@ -953,6 +999,125 @@ th {
     }
   }
 </script>
+    </div> <!-- End of wig-grid -->
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 1. PURCHASE POPUP MODAL (Paste here)      -->
+  <!-- ========================================= -->
+  <div id="purchase-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal-btn" onclick="closePurchaseModal()">&times;</button>
+      <h3 id="modal-wig-title">Select Your Length</h3>
+      
+      <div class="selection-group">
+        <label for="modal-length-select">Choose Length:</label>
+        <select id="modal-length-select" onchange="updateModalPrice()">
+          <!-- Options load dynamically -->
+        </select>
+      </div>
+
+      <p class="wig-price">Price: GH₵ <span id="modal-price-display">0</span></p>
+
+      <div class="card-buttons">
+        <button onclick="confirmAddToCartFromModal()" class="add-to-cart-btn">Add to Bag 🛍️</button>
+        <button onclick="confirmBuyNowFromModal()" class="buy-now-btn">Buy Now 👑</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================= -->
+  <!-- 2. YOUR ORDER FORM SECTION                -->
+  <!-- ========================================= -->
+  <div id="order">
+    <!-- Your checkout/order form code -->
+  </div>
+
+
+  <!-- ========================================= -->
+  <!-- 3. JAVASCRIPT CODE (Paste right before </body>) -->
+  <!-- ========================================= -->
+  <script>
+    const wigData = {
+      bouncy: [
+        { name: "10 inches", price: 400 },
+        { name: "12 inches", price: 500 },
+        { name: "14 inches", price: 600 },
+        { name: "16 inches", price: 650 },
+        { name: "18 inches", price: 800 },
+        { name: "20 inches", price: 900 },
+        { name: "24 inches", price: 1000 }
+      ],
+      deep: [
+        { name: "10 inches", price: 400 },
+        { name: "12 inches", price: 500 },
+        { name: "14 inches", price: 600 },
+        { name: "16 inches", price: 650 },
+        { name: "18 inches", price: 800 },
+        { name: "20 inches", price: 900 },
+        { name: "24 inches", price: 1000 }
+      ],
+      bone: [
+        { name: "10 inches", price: 300 },
+        { name: "14 inches", price: 400 },
+        { name: "16 inches", price: 700 },
+        { name: "18 inches", price: 750 },
+        { name: "20 inches", price: 800 },
+        { name: "24 inches", price: 900 },
+        { name: "26 inches", price: 1000 },
+        { name: "30 inches", price: 1200 }
+      ]
+    };
+
+    let currentWigName = "";
+    let currentWigKey = "";
+
+    function openPurchaseModal(wigName, wigKey) {
+      currentWigName = wigName;
+      currentWigKey = wigKey;
+      
+      document.getElementById('modal-wig-title').innerText = wigName;
+      const selectElem = document.getElementById('modal-length-select');
+      selectElem.innerHTML = '';
+
+      wigData[wigKey].forEach((item) => {
+        selectElem.innerHTML += `<option value="${item.price}" data-name="${item.name}">${item.name} - GH₵ ${item.price}</option>`;
+      });
+
+      updateModalPrice();
+      document.getElementById('purchase-modal').classList.add('active');
+    }
+
+    function closePurchaseModal() {
+      document.getElementById('purchase-modal').classList.remove('active');
+    }
+
+    function updateModalPrice() {
+      const selectElem = document.getElementById('modal-length-select');
+      const priceDisplay = document.getElementById('modal-price-display');
+      priceDisplay.innerText = selectElem.value;
+    }
+
+    function confirmAddToCartFromModal() {
+      const selectElem = document.getElementById('modal-length-select');
+      const selectedOption = selectElem.options[selectElem.selectedIndex];
+      const lengthName = selectedOption.getAttribute('data-name');
+      const price = parseInt(selectElem.value);
+
+      const fullName = `${currentWigName} (${lengthName})`;
+      addToCart(fullName, price);
+      closePurchaseModal();
+    }
+
+    function confirmBuyNowFromModal() {
+      confirmAddToCartFromModal();
+      scrollToOrder();
+    }
+  </script>
+
+
+
 
 </body>
 </html
