@@ -628,6 +628,55 @@ th {
   margin: 0 auto;
   padding: 20px;
 }
+/* Elux Hairs Luxury Announcement Banner CSS */
+.announcement-banner {
+  background: #d4af37; /* Luxury Gold */
+  color: #000;
+  font-weight: bold;
+  font-size: 0.95rem;
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.announcement-banner marquee {
+  letter-spacing: 1px;
+}
+/* Elux Perks Section CSS */
+.elux-perks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.perk-card {
+  background: #111;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+  padding: 20px;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.perk-card:hover {
+  transform: translateY(-5px);
+}
+
+.perk-card h4 {
+  color: #d4af37;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.perk-card p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
 
 </style>
 
@@ -637,7 +686,15 @@ th {
 
 
 </head>
-<body><h1>Elux hairs</h1>
+<body>
+         <!-- Elux Hairs Scrolling Ticker -->
+<div class="announcement-banner">
+  <marquee behavior="scroll" direction="left" scrollamount="5">
+    ✨ Welcome to Elux Hairs — Where luxury meets effortless beauty. 👑 Elevate your crown with premium human hair & HD lace. 💎 Order yours today!
+  </marquee>
+</div>
+  
+      <h1>Elux hairs</h1>
       
 
 <nav>
@@ -653,6 +710,21 @@ th {
   <h1>WELCOME TO ELUX HAIRS</h1>
   <p>Luxurious and beautiful wigs for every occasion to be that "girl"</p>
 </header>
+<!-- Elux Perks Section -->
+<div class="elux-perks">
+  <div class="perk-card">
+    <h4>🚚 Fast Delivery</h4>
+    <p>Swift delivery right to your doorstep across Ghana.</p>
+  </div>
+  <div class="perk-card">
+    <h4>✨ 100% Human Hair</h4>
+    <p>Pure, premium raw human hair with flawless HD lace finishes.</p>
+  </div>
+  <div class="perk-card">
+    <h4>👑 Ready-to-Wear</h4>
+    <p>Pre-plucked, custom-styled units designed for effortless beauty.</p>
+  </div>
+</div>
 
 <section id="wigs">
 <h2>OUR WIGS</h2>
