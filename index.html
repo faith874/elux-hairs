@@ -444,6 +444,113 @@ th {
   margin-bottom: 0;
 }
 
+.chat-notice-box {
+  background-color: #121212;
+  border: 1px dashed #d4af37;
+  border-radius: 12px;
+  padding: 15px 20px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 600px;
+}
+.chat-notice-box p {
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+.chat-notice-box a {
+  color: #d4af37 !important;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* Floating Cart Button */
+.floating-cart-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #d4af37;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 1000;
+  font-size: 1rem;
+}
+
+/* Slide-out Cart Drawer (Hidden by default) */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Hidden off-screen */
+  width: 100%;
+  max-width: 350px;
+  height: 100%;
+  background: #181818;
+  border-left: 1px solid #d4af37;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.8);
+  transition: right 0.3s ease-in-out;
+  z-index: 1100;
+  padding: 20px;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Class to open the drawer */
+.cart-drawer.open {
+  right: 0; 
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+.cart-header h3 {
+  color: #d4af37;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+#cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#cart-items li {
+  padding: 10px 0;
+  border-bottom: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.cart-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #f4e8c1;
+  text-align: center;
+  margin: 15px 0;
+}
 
 </style>
 
@@ -719,6 +826,33 @@ th {
     ✨ After transferring, enter your MoMo Transaction Reference ID into the order form below so we can process your wig immediately!
   </p>
 </div>
+<!-- ORDER & SOCIAL CHAT NOTICE BOX -->
+<div class="chat-notice-box">
+  <p>✨ <strong>No immediate payment required to order!</strong> You can submit your order right now, then slide into our DMs on 
+    <a href="https://www.tiktok.com/@evryonelovespeace" target="_blank">TikTok</a> or add us on 
+    <a href="https://www.snapchat.com/add/faithful268441?share_id=aDAMbODOiOw&locale=en-US" target="_blank">Snapchat</a> to chat with Elux Hairs before making your payment! 👑
+  </p>
+</div>
+        <!-- FLOATING CART ICON (Stays on screen) -->
+<button class="floating-cart-btn" onclick="toggleCartDrawer()">
+  🛍️ Bag (<span id="cart-count">0</span>)
+</button>
+
+<!-- SLIDE-OUT CART DRAWER -->
+<div id="cart-drawer" class="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Shopping Bag 🛍️</h3>
+    <button class="close-btn" onclick="toggleCartDrawer()">&times;</button>
+  </div>
+  
+  <ul id="cart-items">
+    <li class="empty-cart" style="text-align:center; color:#888;">Your cart is empty</li>
+  </ul>
+  
+  <p class="cart-total">Total: GH₵ <span id="cart-total-price">0</span></p>
+  <button class="checkout-btn" onclick="scrollToOrder(); toggleCartDrawer();">Proceed to Checkout ✨</button>
+</div>
+
 
          <form action="https://api.web3forms.com/submit" method="POST">
   <!-- Web3Forms Access Key -->
@@ -777,5 +911,48 @@ th {
   <button type="submit">PLACE ORDER</button>
 </form>
   </section>
+            <script>
+  let cart = [];
+
+  function toggleCartDrawer() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.classList.toggle('open');
+  }
+
+  function addToCart(itemName, itemPrice) {
+    cart.push({ name: itemName, price: itemPrice });
+    updateCartUI();
+    toggleCartDrawer(); // Automatically open drawer when an item is added!
+  }
+
+  function updateCartUI() {
+    const cartItemsList = document.getElementById('cart-items');
+    const totalPriceSpan = document.getElementById('cart-total-price');
+    const cartCountSpan = document.getElementById('cart-count');
+    
+    cartItemsList.innerHTML = '';
+    let total = 0;
+
+    cartCountSpan.innerText = cart.length;
+
+    if (cart.length === 0) {
+      cartItemsList.innerHTML = '<li class="empty-cart" style="text-align:center; color:#888;">Your cart is empty</li>';
+    } else {
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartItemsList.innerHTML += `<li><span>${item.name}</span> <span>GH₵ ${item.price}</span></li>`;
+      });
+    }
+    totalPriceSpan.innerText = total;
+  }
+
+  function scrollToOrder() {
+    const orderSection = document.getElementById('order');
+    if (orderSection) {
+      orderSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
+
 </body>
 </html
