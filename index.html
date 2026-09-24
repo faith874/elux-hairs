@@ -677,6 +677,66 @@ th {
   color: #ccc;
   font-size: 0.9rem;
 }
+/* Elux Hairs Thank You Modal CSS */
+.elux-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+}
+
+.elux-modal-content {
+  background: #111;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
+  animation: modalPop 0.3s ease-out;
+}
+
+.elux-modal-content h3 {
+  color: #d4af37;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.elux-modal-content p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.elux-close-btn {
+  background: #d4af37;
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.elux-close-btn:hover {
+  background: #e6c547;
+}
+
+@keyframes modalPop {
+  from {transform: scale(0.8); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
 
 </style>
 
@@ -1215,9 +1275,29 @@ th {
       confirmAddToCartFromModal();
       scrollToOrder();
     }
+        // Function to show the modal (call this inside your form submission success handler)
+function showThankYouModal() {
+  document.getElementById('thankYouModal').style.display = 'flex';
+}
+
+// Function to close the modal
+function closeThankYouModal() {
+  document.getElementById('thankYouModal').style.display = 'none';
+  // Optional: reset your form here if you want
+  // document.getElementById('your-form-id').reset();
+}
+
   </script>
 
 
+<!-- Elux Hairs Thank You Modal HTML -->
+<div id="thankYouModal" class="elux-modal">
+  <div class="elux-modal-content">
+    <h3>✨ Thank You for Choosing Elux Hairs! 👑</h3>
+    <p>Your order has been successfully placed. We are verifying your transaction ID and will reach out shortly to confirm your delivery. Get ready to slay!</p>
+    <button class="elux-close-btn" onclick="closeThankYouModal()">Okay, Got It!</button>
+  </div>
+</div>
 
 
 </body>
