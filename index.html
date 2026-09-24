@@ -1317,6 +1317,25 @@ function closeThankYouModal() {
   function closeThankYouModal() {
     document.getElementById('thankYouModal').style.display = 'none';
   }
+  // Smart button color change when form is filled
+  const eluxForm = document.getElementById('eluxOrderForm');
+  if (eluxForm) {
+    const subBtn = eluxForm.querySelector('button[type="submit"]');
+    const reqInputs = eluxForm.querySelectorAll('input[required]');
+
+    reqInputs.forEach(input => {
+      input.addEventListener('input', function() {
+        let allDone = true;
+        reqInputs.forEach(i => {
+          if (!i.value.trim()) allDone = false;
+        });
+        if (subBtn) {
+          subBtn.style.backgroundColor = allDone ? '#b89728' : '#d4af37';
+          subBtn.style.boxShadow = allDone ? '0 0 15px rgba(212, 175, 55, 0.6)' : 'none';
+        }
+      });
+    });
+  }
 
   </script>
 
