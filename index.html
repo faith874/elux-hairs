@@ -1061,7 +1061,8 @@ th {
 </div>
 
 
-         <form action="https://api.web3forms.com/submit" method="POST">
+         <form id="eluxOrderForm" action="https://api.web3forms.com/submit" method="POST">
+
   <!-- Web3Forms Access Key -->
   <input type="hidden" name="access_key" value="3a5756c6-5b59-4ddb-86d6-9a891053f58a">
 
@@ -1286,6 +1287,36 @@ function closeThankYouModal() {
   // Optional: reset your form here if you want
   // document.getElementById('your-form-id').reset();
 }
+  const form = document.getElementById('eluxOrderForm');
+  
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Stops it from jumping to the Web3Forms page
+      
+      const formData = new FormData(form);
+      
+      // Sends the data to your email in the background
+      fetch(form.action, {
+        method: 'POST',
+        body: formData
+      }).then(response => {
+        if (response.ok) {
+          // Show your gorgeous luxury modal!
+          document.getElementById('thankYouModal').style.display = 'flex';
+          form.reset(); // Clears the form fields
+        } else {
+          alert('Oops, something went wrong. Please try again!');
+        }
+      }).catch(error => {
+        alert('Network error. Please check your connection.');
+      });
+    });
+  }
+
+  // Function to close the modal when they click "Okay, Got It!"
+  function closeThankYouModal() {
+    document.getElementById('thankYouModal').style.display = 'none';
+  }
 
   </script>
 
